@@ -1,0 +1,27 @@
+This is my submission for Assignment 11. I did not have a partner for this assignment. Overall, mostly everything is working. 
+There are a few things however, that just refuse to work. I was not able to get the ajax login working correctly, because
+the ajax calls just wouldn't work on the text box in the navbar. I just went ahead and used the same login/signup page from
+Assignment 10 for the login. 
+
+Also, creating a new post just doesn't work. I had to also use absolute links rather than relative links, because the views
+just couldn't find the js files even though they were in the same directory. I know it doesn't make any sense. The same problem occured
+with each ajax call. Therefore, those links are also absolute. I checked the network panel in the console to see if it was reading 
+the js file after I had changed the links. It was reading them, but it would not continue ahead with the js function. I've tried everything
+to no avail. 
+
+The same problem also occurs with printing the comments to the respective div in the post with comments view. It reads the js file, and 
+finds the function, but it just doesn't go forward with the function. Therefore, the comments will not print. I still wanted to print
+the comments, so I created a comments array for the post model, and printed them accordingly. I know that is the wrong way to do it, but 
+I want to make the page more complete. 
+
+I wanted to put different elements into different places, so I put all the views and models in their respective directories. The Post 
+controller requires the post listing view, the comment controller(which is for the post with comments) uses the comment view, and the login
+controllers are there from Assignment 10. I also wanted to do the add post and add comment in new controllers that were going to handle
+adding new things to the database, but as you know it didn't work out.
+
+In much better news, the post listing is working great. I was able to display the individual posts by links in the titles, and if you try
+to manually go to the post with comments view without a query string, it will redirect to the homepage. Also, the login and signup works 
+perfectly. Also, a text box will display on the homepage, if you want to create a post if you are logged in. The same happens for creating 
+a comment in the post comment view. Overall, I am sorry I couldn't get everything working, and I actually look forward to working with a 
+group for Assignment 12. Hopefully we'll have better luck than I did with this Assignment. All the code that I used to try to get 
+everything to work is in their respective files, and the entry point is Posts.php. 

@@ -1,0 +1,49 @@
+<?php
+require_once("models/Comment.php");
+class Post
+{
+	public static $tableName = "posts";
+	
+	public $id;
+	public $create_time;
+	public $author_id;
+	public $title;
+	public $body;
+	
+	public $comments;
+	
+	function copyFromRow( $row ){
+		$this->id = $row['id'];
+		$this->create_time = $row['create_time'];
+		$this->author_id = $row['author_id'];
+		$this->title = $row['title'];
+		$this->body = $row['body'];
+	}
+	
+	function getComments($dbh){
+		$this->comments=Comment::findAllForPost($this->id, $dbh);
+	}
+	
+	function sortByTime($dbh){
+		$stmt = $dbh->prepare( "select * from ".Post::$tableName." order by create_time desc");
+		$stmt->execute();
+		
+		$result = array();
+		while($row = $stmt->fetch()){
+			$post = new Post();
+			$post->copyFromRow($row);
+			$post->getComments($dbh);
+			$result[] = $post;
+		}
+		return $result;
+	}
+	
+	function findByID($id, $dbh){
+		$stmt = $dbh->prepare( "select * from ".Post::$tableName." where id = :id;");
+		$stmt->bindParam(':id', $id);
+		$stmt->execute();
+		
+		$this->copyFromRow($stmt->fetch());
+	}
+}
+?>

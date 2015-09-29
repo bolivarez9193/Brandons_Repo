@@ -1,0 +1,62 @@
+<html>
+
+<head>
+<title>My Recipes</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="main.css">
+
+<?php
+	require_once dirname(__FILE__) . '/../RecipeList.php';
+?>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="page-header">
+	<h1>The Bestest Recipes</h1>
+</div>
+
+<form method="POST" action="">
+
+<div class="input-group">
+	<input type="text" name="terms" id="search" class="form-control">
+	<span class="input-group-btn"><button class="btn btn-primary">Search</button></span>
+</div>
+
+<table class="table">
+
+<tr>
+	<th></th>
+	<th><a href="RecipeList.php?sort=<?php echo $sortingTitle; ?>&field=Name">Name</a></th>
+	<th><a href="RecipeList.php?sort=<?php echo $sortingTitle; ?>&field=Prep">Prep Time</a></th>
+	<th><a href="RecipeList.php?sort=<?php echo $sortingTitle; ?>&field=Total">Total Time</a></th>
+	<th><a href="RecipeList.php?sort=<?php echo $sortingTitle; ?>&field=Rating">Rating</a></th>
+</tr>
+<?php
+	for($i = 0; $i < count($recipes); $i++){
+?>
+<tr>
+	<td rowspan="2">
+		<img class="thumb" src=<?=$recipes[$i]->Image?>>
+	</td>
+	<td><a href="RecipeDetail.php?ID=<?php echo $recipes[$i]->ID; ?>&name=<?php echo $recipes[$i]->Name?>"><?=$recipes[$i]->Name?></a></td>
+	<td><?=$recipes[$i]->Prep?></td>
+	<td><?=$recipes[$i]->Total?></td>
+	<td><?=$recipes[$i]->Rating?></td>
+</tr>
+<tr><td colspan="4"><?=$recipes[$i]->Description?>
+</td></tr>
+<?php
+}
+?>
+</table>
+
+
+</div>
+
+</body>
+
+</html>

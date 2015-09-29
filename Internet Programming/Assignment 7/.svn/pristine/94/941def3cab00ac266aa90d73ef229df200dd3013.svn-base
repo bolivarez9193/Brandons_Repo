@@ -1,0 +1,26 @@
+<?php
+// include models, including the database connection
+
+
+
+// get querystring data (part 2)
+
+
+
+
+// get form data (part 3)
+
+
+
+
+// using the Recipe model, retrieve an array of recipes
+
+
+
+
+// require the view
+
+
+
+
+?>

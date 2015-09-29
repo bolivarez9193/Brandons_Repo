@@ -1,0 +1,21 @@
+h1 { 
+	text-align: center;
+	color: blue;
+	font-family : "Courier New";
+}
+
+.emph {
+	font-style : italic;
+	text-align : center;
+	padding-bottom: 15px;
+}
+
+/* CSS for Question 1 here */
+
+
+
+/* CSS for Question 2 here */
+
+#canvas { width : 500px; height : 300px; background-color: lightgray; position : relative;}
+
+#gopher { width : 40px; position : absolute; left : 20px; top : 20px; }

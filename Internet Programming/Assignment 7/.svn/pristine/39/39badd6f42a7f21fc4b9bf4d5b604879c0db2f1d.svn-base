@@ -1,0 +1,5 @@
+For some reason, changing the sorting title is not working.
+I have tested if sortingTitle is being read by the findAll function
+It is being read, so I have no idea why it isn't working
+However, if you were to change the value of sortingTitle from ASC to DESC, it will work.
+

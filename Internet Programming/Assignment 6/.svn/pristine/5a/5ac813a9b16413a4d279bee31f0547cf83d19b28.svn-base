@@ -1,0 +1,70 @@
+<html>
+
+<head>
+<title>Incredibly Simple Shopping</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="main.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="page-header">
+	<h1>Buy More!</h1>
+</div>
+
+<div class="row col-md-8 col-md-offset-2">
+
+<!-- on button click, POST back to self (controller) -->
+<form method="POST" action="">
+
+<table class="table">
+
+<!-- 
+	use PHP to generate these table rows based on what is in the $items array.
+	pay attention to the name/value attributes!
+-->
+<tr>
+	<td rowspan="2">
+		<input type="checkbox" name="item_id[]" value="1000">
+		<img class="thumb" src="http://smartshopbuy.com/images/HomeDecorations/taylor-big-chair.jpg">
+	</td>
+	<td><span class="name">Big Chair</span> <span class="price">$56.78</span></td>
+</tr>
+<tr><td colspan="2">A big, comfy chair. Great for sitting, also laying down if you are very small.</td></tr>
+
+<tr>
+	<td rowspan="2">
+		<input type="checkbox" name="item_id[]" value="1001">
+		<img class="thumb" src="http://upload.wikimedia.org/wikipedia/commons/e/e1/Gaoliang_Bridge.JPG">
+	</td>
+	<td><span class="name">Cool Bridge</span> <span class="price">$20,000.00</span></td>
+</tr>
+<tr><td colspan="2">Slightly used, in great condition. Price does not include shipping.</td></tr>
+
+<tr>
+	<td rowspan="2">
+		<input type="checkbox" name="item_id[]" value="1002">
+		<img class="thumb" src="http://animalcontrolphx.com/wp-content/uploads/2013/05/gophers-400.jpg">
+	</td>
+	<td><span class="name">Best Friend</span> <span class="price">$12.34</span></td>
+</tr>
+<tr><td colspan="2">Occasionally rabid, but always there for you.</td></tr>
+<!-- end generating table rows -->
+
+</table>
+
+<!-- 
+	notice the button has a name attribute, so that you can tell they POSTed even if they didn't
+	select any checkboxes!
+-->
+<button class="btn btn-primary" name="buy">Buy!</button>
+
+</div>
+
+</body>
+
+</html>

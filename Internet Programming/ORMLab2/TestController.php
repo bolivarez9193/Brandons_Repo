@@ -1,0 +1,37 @@
+<?php
+// a simple test controller for your lab work
+// we're not going to bother with a view
+
+// db connection
+require_once("models/DB.php");
+require_once("models/Recipe.php");
+require_once("models/RecipeStep.php");
+
+$id = 1;
+
+// inflate recipe object
+
+$recipes = Recipe::findAll($dbh,true);
+
+// dump recipe details
+
+
+// dump recipe steps
+
+for($i=0; $i<count($recipes); $i++){
+	for($j=0;$j<count($recipes[$i]->recipe_steps);$j++){
+		print $recipes[$i]->recipe_steps[$j];
+	}
+}
+
+
+// dump recipe ingredients/units names
+for($i=0; $i<count($recipes); $i++){
+	for($j=0;$j<count($recipes[$i]->recipe_details);$j++){
+		print $recipes[$i]->recipe_details[$j];
+	}
+
+}
+
+
+?>

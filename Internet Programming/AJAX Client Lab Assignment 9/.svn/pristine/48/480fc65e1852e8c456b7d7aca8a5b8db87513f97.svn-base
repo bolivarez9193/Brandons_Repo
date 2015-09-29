@@ -1,0 +1,5 @@
+Okay, so I tried to test out the php for getting every ingredient, and it works great. I also tested adding an ingredient, and it works fine.
+I am able to print out a json array of the ingredients into the console, but I cannot print them to the dropdown box. 
+I probably won't finish this by the due date, but I will keep working at this assignment during the semester.
+I didn't work with a partner for this one, but I will keep trying to do this on my own.
+Anyway, sorry for the crappy submission. I'll try to do better next time.

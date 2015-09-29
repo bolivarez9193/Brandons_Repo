@@ -1,0 +1,18 @@
+.thumb { width : 50px;}
+
+.name { font-weight: bold;}
+
+.price {
+	position: relative;
+	float: right;
+}
+
+.error {
+	color: red;
+	font-style: italic;
+}
+
+#image{
+	width : 300px;
+	
+}

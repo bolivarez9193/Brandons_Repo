@@ -1,0 +1,47 @@
+$("#log").css("height", "20em")
+
+// use a global variable to keep track of the next id you need
+
+
+// start by populating the log
+update_log()
+
+
+function update_log() {
+	// make an AJAX call to get the latest messages and show them in the
+	//  log box (use the function below to add them to the box)
+
+	// make sure you update your next id variable!
+
+
+}
+
+// (done for you) simple function to add a json array of comments to the log box
+function add_to_log(comments) {
+	log = $("#log")
+
+	$.each(comments, function(i, comment) {
+		log.append(comment.username + ": " + comment.text + "\n")
+	})
+
+	// auto-scroll to bottom
+	if(log.length)
+       log.scrollTop(log[0].scrollHeight - log.height());
+}
+
+
+// when the user hits return or the speak button, post to the server
+$("form").submit(function() {
+	val = $("#text").val()
+	name = $("#name").val()
+
+	// AJAX post! (don't forget to update the log box after you post)
+
+
+
+
+
+	// suppress normal submit
+	return false;
+})
+

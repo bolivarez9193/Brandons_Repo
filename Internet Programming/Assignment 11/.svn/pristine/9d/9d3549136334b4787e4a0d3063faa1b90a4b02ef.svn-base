@@ -1,0 +1,27 @@
+<?php
+require_once("models/User.php");
+require_once("models/DB.php");
+require_once("models/Post.php");
+
+session_start();
+if(!isset($_SESSION["user"])){
+	$user = new User();
+	$user->username = "Guest";
+}
+else{
+	$user = $_SESSION["user"];
+}
+
+if($_POST){
+	$post = new Post();
+	$user_id = $user->id;
+	$post->add_post($_POST["title"], $_POST["body"], $user_id, $dbh);
+
+} 
+
+
+$posts = Post::sortByTime($dbh);
+$users = User::findAll($dbh);
+
+include_once("views/posts.php");
+?>

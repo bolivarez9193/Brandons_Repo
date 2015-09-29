@@ -1,0 +1,31 @@
+<?php
+require_once( "models/DB.php" );
+require_once( "models/User.php" );
+
+// the user wants to either login or sign up
+
+// case 1: they already have an active session, with a valid user in it
+//         no point in logging in or signing up unless they logout first
+// outcome: inflate $user with that id and render the home.php view
+
+// case 2: they don't have an active session with a valid user in it
+// outcome: create an empty $login_user object and an empty $signup_user object
+//          and render the loginform.php view (it expects both User objects)
+
+// find their session or create a new one
+
+
+// see if there's a valid userid in session
+
+
+
+// if so, show the home.php view and get out of here
+
+
+
+// otherwise, set up the (empty) objects that the loginform view expects
+$login_user = new User();
+$signup_user = new User();
+
+include_once( "views/loginform.php" );
+?>

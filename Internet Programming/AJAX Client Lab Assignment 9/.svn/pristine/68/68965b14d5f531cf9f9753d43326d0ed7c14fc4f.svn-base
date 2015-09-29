@@ -1,0 +1,13 @@
+//document.write("<?php $ingredients or die(); ?>");
+
+function cool_ingredients_widget(elt){
+
+	elt.append($("<option>").attr("name", "ing[]").attr("value", 0));
+	elt.append($("<option>").attr("name", "ing[]").attr("value", 0).text("Add new... "));	
+	elt.append($("<option>").attr("name", "ing[]").attr("value", 17).text("chicken"));
+	elt.append($("<option>").attr("name", "ing[]").attr("value", 16).text("broccoli"));
+	
+	elt.change(function(data){
+		console.log(elt.val());
+	})
+}

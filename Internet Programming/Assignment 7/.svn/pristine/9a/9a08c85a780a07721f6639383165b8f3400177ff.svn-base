@@ -1,0 +1,55 @@
+<?php
+// include models, including the database connection
+require_once("models/Recipe.php");
+require_once("models/DB.php");
+
+// get querystring data (part 2)
+$fieldName='Name';
+$sortingTitle='ASC';
+
+//Switching between sorting ASC and DESC
+
+if(isset($_GET['sorting'])){
+	if($_GET['sorting']=='ASC'){
+		$sortingTitle='DESC';
+	}
+	else{
+		$sortingTitle='ASC';
+	}
+}
+
+//Determining whether the field is Name, Prep Time, Total Time, and Rating
+if(isset($_GET['field'])){
+if($_GET['field']=='Name'){
+	$fieldName="Name";
+}
+else if($_GET['field']=='Prep'){
+	$fieldName="Prep";
+}
+else if($_GET['field']=='Total'){
+	$fieldName="Total";
+}
+else if($_GET['field']=='Rating'){
+	$fieldName="Rating";
+}
+}
+
+// get form data (part 3)
+if($_POST){
+$searching = $_POST["terms"];
+$recipes = Recipe::findByKeyword($dbh, $searching);
+
+require_once("views/view_recipes.php");
+}
+else {
+
+// using the Recipe model, retrieve an array of recipes
+$recipes = Recipe::findAll($dbh, $sortingTitle, $fieldName);
+
+
+// require the view
+require_once("views/view_recipes.php");
+}
+
+
+?>

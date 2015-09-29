@@ -1,0 +1,85 @@
+<html>
+
+<head>
+<title>My Recipes</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="main.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="page-header">
+	<h1>The Bestest Recipes</h1>
+</div>
+
+<form method="POST" action="">
+
+<div class="input-group">
+	<input type="text" name="terms" id="search" class="form-control">
+	<span class="input-group-btn"><button class="btn btn-primary">Search</button></span>
+</div>
+
+<table class="table">
+
+<tr>
+	<th></th>
+	<th><a href="">Name</a></th>
+	<th><a href="">Prep Time</a></th>
+	<th><a href="">Total Time</a></th>
+	<th><a href="">Rating</a></th>
+</tr>
+
+<tr>
+	<td rowspan="2">
+		<img class="thumb" src="http://smartshopbuy.com/images/HomeDecorations/taylor-big-chair.jpg">
+	</td>
+	<td><a href="#">A Delicious Chair</a></td>
+	<td>3 min</td>
+	<td>5 min</td>
+	<td>1.5 out of 5</td>
+</tr>
+<tr><td colspan="4">This is a description. This is a description. This is a description. This is a description.
+This is a description. This is a description. This is a description. This is a description. This is a description.
+This is a description. This is a description.
+</td></tr>
+
+<tr>
+	<td rowspan="2">
+		<img class="thumb" src="http://animalcontrolphx.com/wp-content/uploads/2013/05/gophers-400.jpg">
+	</td>
+	<td><a href="#">Surprise Pie</a></td>
+	<td>3 min</td>
+	<td>5 min</td>
+	<td>1.5 out of 5</td>
+</tr>
+<tr><td colspan="4">This is a description. This is a description. This is a description. This is a description.
+This is a description. This is a description. This is a description. This is a description. This is a description.
+This is a description. This is a description.
+</td></tr>
+
+<tr>
+	<td rowspan="2">
+		<img class="thumb" src="http://smartshopbuy.com/images/HomeDecorations/taylor-big-chair.jpg">
+	</td>
+	<td><a href="#">A Delicious Chair</a></td>
+	<td>3 min</td>
+	<td>5 min</td>
+	<td>1.5 out of 5</td>
+</tr>
+<tr><td colspan="4">This is a description. This is a description. This is a description. This is a description.
+This is a description. This is a description. This is a description. This is a description. This is a description.
+This is a description. This is a description.
+</td></tr>
+
+</table>
+
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<?php
+
+if( isset($_SERVER['PATH_INFO'])){
+	$fn = substr($_SERVER['PATH_INFO'], 1);
+	
+}
+echo json_encode($fn());
+
+function GetIngredients(){
+	require_once("models/DB.php");
+	require_once("models/Ingredient.php");
+	$ingredients = Ingredient::findAll($dbh, true);
+	for($i=0;$i<count($ingredients);$i++){
+		print $ingredients[$i];
+	}
+}
+
+function SaveIngredient(){
+	require_once("models/DB.php");
+	require_once("models/Ingredient.php");
+	
+}
+?>

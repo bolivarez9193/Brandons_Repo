@@ -1,0 +1,72 @@
+$("#log").css("height", "20em")
+
+// use a global variable to keep track of the next id you need
+var next = 0;
+
+// start by populating the log
+update_log()
+
+
+function update_log() {
+	// make an AJAX call to get the latest messages and show them in the
+	//  log box (use the function below to add them to the box)
+	// this was working!
+	
+	$.getJSON("http://localhost/Polling%20Lab/server.php?next=" + next, function(obj){
+		add_to_log(obj);
+		if(obj.length>0){
+				next = parseInt(obj[obj.length-1].id)+1
+				}
+	})
+	/*
+	$.ajax({
+		'url' : "server.php?next="+next,
+		'datatype' : 'json'
+		}).done(function(comments){
+			add_to_log(comments)
+			if(comments.length>0){
+				next = parseInt(comments[comments.length-1].id)+1
+				}
+		})
+	// make sure you update your next id variable!
+	
+*/
+}
+
+// (done for you) simple function to add a json array of comments to the log box
+function add_to_log(comments) {
+	log = $("#log")
+
+	$.each(comments, function(i, comment) {
+		log.append(comment.username + ": " + comment.text + "\n")
+	})
+
+	// auto-scroll to bottom
+	if(log.length)
+       log.scrollTop(log[0].scrollHeight - log.height());
+}
+
+
+// when the user hits return or the speak button, post to the server
+$("form").submit(function() {
+	val = $("#text").val()
+	name = $("#name").val()
+	
+	// AJAX post! (don't forget to update the log box after you post)
+	
+	$.ajax({
+			type : 'POST',
+			url : '"http://localhost/Polling%20Lab/server.php',
+			data : {'username' : name, 'text' : val }
+			})
+			.done(function(data)){
+				update_log;
+	});
+
+
+
+	
+	// suppress normal submit
+	return false;
+})
+

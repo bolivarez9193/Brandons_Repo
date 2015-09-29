@@ -1,0 +1,48 @@
+<?php
+try{
+		$dbh = new PDO( 'mysql:host=localhost;dbname=recipes',
+							'bjolivarez', 'insertpassword',
+							array( PDO::ATTR_PERSISTENT => true ) );
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	}catch( PDOException $e ) {
+			print "ERROR: ".$e->getMessage();
+}
+
+class Ingredient
+{
+	# table name
+	public static $tableName = "ingredients";
+
+	# db column names
+	public $id;
+	public $name;
+
+	function copyFromRow( $row ){
+		$this->id = $row['id'];
+		$this->name = $row['name'];
+	}
+	
+	static function findAll( $dbh, $withSteps=false) {
+		$stmt = $dbh->prepare( "select * from ".Ingredient::$tableName." order by id" );
+		$stmt->execute();
+		
+		$result = array();
+		while( $row = $stmt->fetch() ){
+			$i = new Ingredient();
+			$i->copyFromRow( $row );
+			$result[] = $i;
+		}
+		return $result;
+	}
+	
+	static function insert($dbh, $id, $name){
+		$stmt = $dbh->prepare( "insert into ".Ingredient::$tableName." (id, name) values (:id, :name)");
+		$stmt->bindParam(":id", $id);
+		$stmt->bindParam(":name", $name);
+		$stmt.execute();
+	}
+	function __tostring() {
+		return "Ingredient ".$this->id." ".$this->name;
+	}
+}
+?>

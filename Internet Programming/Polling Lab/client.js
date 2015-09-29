@@ -1,0 +1,59 @@
+$("#log").css("height", "20em")
+
+// use a global variable to keep track of the next id you need
+var next = 0;
+
+// start by populating the log
+update_log()
+
+
+function update_log() {
+	$.ajax({
+		'url' : 'server.php?next='+next,
+		'dataType' : 'JSON'
+		}).done(function(comments) {
+			
+			add_to_log(comments)
+			
+			if( comments.length > 0 ){
+					next = parseInt(comments[comments.length-1].id)+1
+				}
+				
+				setTimeout(update_log, 1500)
+		})
+	
+
+}
+
+// (done for you) simple function to add a json array of comments to the log box
+function add_to_log(comments) {
+	log = $("#log")
+
+	$.each(comments, function(i, comment) {
+		log.append(comment.create_time + ": " + comment.body + "\n")
+	})
+
+	// auto-scroll to bottom
+	if(log.length)
+       log.scrollTop(log[0].scrollHeight - log.height());
+}
+
+
+// when the user hits return or the speak button, post to the server
+$("form").submit(function() {
+	val = $("#text").val()
+	name = $("#name").val()
+	
+	// AJAX post! (don't forget to update the log box after you post)
+	
+	$.post("server.php",
+			{ "username" : name, "text" : val },
+			function(data){
+					$("#text").val("")
+					$("#name").val("")
+			}, "json");
+
+	// suppress normal submit
+	return false;
+})
+

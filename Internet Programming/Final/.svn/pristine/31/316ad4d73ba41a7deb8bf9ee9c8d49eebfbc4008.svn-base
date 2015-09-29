@@ -1,0 +1,9 @@
+.error {
+	font-style: italic;
+	color: red;
+}
+
+#doomed {
+	font-style: bold;
+	color: blue;
+}

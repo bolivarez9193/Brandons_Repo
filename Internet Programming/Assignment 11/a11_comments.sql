@@ -1,0 +1,27 @@
+CREATE TABLE users
+(
+	id				INTEGER			NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	username		VARCHAR(64)		NOT NULL,
+	password_hash	VARCHAR(128)	NOT NULL,
+	full_name		VARCHAR(64)		NOT NULL,
+	admin			BOOLEAN			NOT NULL DEFAULT false
+);
+
+CREATE TABLE posts
+(
+	id				INTEGER			NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	create_time		TIMESTAMP		NOT NULL,
+	author_id		INTEGER			NOT NULL,
+	title			VARCHAR(256)	NOT NULL,
+	body			TEXT			NOT NULL
+);
+
+CREATE TABLE comments
+(
+	id				INTEGER			NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	create_time		TIMESTAMP		NOT NULL,
+	post_id			INTEGER			NOT NULL,
+	author_id		INTEGER			NOT NULL,
+	body			TEXT			NOT NULL,
+	reply_to_id		INTEGER			DEFAULT NULL
+);

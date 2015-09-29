@@ -1,0 +1,25 @@
+<html>
+
+<head>
+<title></title>
+</head>
+
+<body>
+
+<h2>Client-side testing page</h2>
+
+<p>Shouldn't have to change this page, except to add your JavaScript. On load, hook that normal select box to populate it and give it your advanced functionality.</p>
+
+<p>You could put the hidden dialogue on the page here, but to make the widget as easy to use as possible, we're going to programmatically create it instead.</p>
+
+<form method="POST" action="">
+	<select name="ingredient" id="ingredient-dropdown"></select>
+	<button>Post Me</button>
+</form>
+
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="ingredients.js"></script>
+<script>cool_ingredients_widget($("#ingredient-dropdown"))</script>
+</body>
+
+</html>

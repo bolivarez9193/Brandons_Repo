@@ -1,0 +1,27 @@
+<?php
+// a simple test controller for your lab work
+// we're not going to bother with a view
+
+// db connection
+
+
+
+// inflate recipe object
+
+
+
+// dump recipe details
+
+
+
+// dump recipe steps
+
+
+
+
+// dump recipe ingredients/units names
+
+
+
+
+?>

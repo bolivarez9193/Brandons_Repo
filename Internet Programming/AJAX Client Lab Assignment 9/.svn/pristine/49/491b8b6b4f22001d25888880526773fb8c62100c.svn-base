@@ -1,0 +1,22 @@
+<html>
+
+<head>
+<title></title>
+</head>
+
+<body>
+
+<h2>Server-side testing page</h2>
+
+<p>Just a simple form so you can test the POST as if it was coming from your drop-down widget. Whatever values will come from the widget, simply add as form fields below.</p>
+
+<form method="POST" action="">
+
+
+
+	<button>Test Me</button>
+</form>
+
+</body>
+
+</html>

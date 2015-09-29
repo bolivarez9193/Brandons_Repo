@@ -1,0 +1,14 @@
+<?php
+require_once( "models/DB.php" );
+require_once( "models/Enemy.php" );
+
+if( isset( $_GET[id]) ) {
+	$id = $_GET[id];
+	# delete this guy!
+
+
+}
+
+# no id to delete, failed!
+echo json_encode( array( 'status' => 'fail' ) );
+?>

@@ -1,0 +1,14 @@
+$("form").submit(function() {
+	title = $("#title").val()
+	body = $("#body").val()
+	
+	
+	$.post("Post_controller.php",
+			{ "title" : title, "body" : body },
+			function(data){
+					$("#title").val("")
+					$("#body").val("")
+			}, "json");
+
+	
+})

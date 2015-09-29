@@ -1,0 +1,8 @@
+<?php
+require_once( "models/DB.php" );
+require_once( "models/Enemy.php" );
+
+
+
+include_once( "views/thelist.php" );
+?>

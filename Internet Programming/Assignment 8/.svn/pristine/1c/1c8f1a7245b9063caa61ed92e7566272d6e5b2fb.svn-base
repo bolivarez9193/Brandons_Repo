@@ -1,0 +1,40 @@
+<html>
+
+<head>
+<title>Recipe Details</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="main.css">
+
+<?php
+	require_once dirname(__FILE__) . '/../RecipeDetail.php'
+?>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="page-header">
+	<h1><?=$nameOfRecipe?> Steps</h1>
+</div>
+<table class="table">
+<?php 
+	for($i=0; $i<count($recipeSteps);$i++){
+?>
+	<tr>
+		<td><?=$recipeSteps[$i]->stepno?></td>
+		<td>
+			<?=$recipeSteps[$i]->text?>
+		</td>
+	</tr>
+<?php 
+	}
+?>
+</table>
+<p><a href="RecipeList.php">Go back to recipes.</a></p>
+</body>
+
+</div>
+
+</html>

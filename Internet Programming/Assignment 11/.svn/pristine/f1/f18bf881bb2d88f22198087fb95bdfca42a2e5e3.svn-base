@@ -1,0 +1,38 @@
+<?php
+class Post
+{
+	public static $tableName = "posts";
+	
+	public $id;
+	public $create_time;
+	public $author_id;
+	public $title;
+	public $body;
+	
+	function copyFromRow( $row ){
+		$this->id = $row['id'];
+		$this->create_time = $row['create_time'];
+		$this->author_id = $row['author_id'];
+		$this->title = $row['title'];
+		$this->body = $row['body'];
+	}
+	
+	function sortByTime($dbh){
+		$stmt = $dbh->prepare( "select * from ".Post::$tableName." order by create_time desc");
+		$stmt->execute();
+		
+		$row = $stmt->fetch();
+		$post = new Post();
+		$post->copyFromRow($row);
+		return $post;
+	}
+	
+	function findByID($id, $dbh){
+		$stmt = $dbh->prepare( "select * from ".Post::$tableName." where id = :id;");
+		$stmt->bindParam(':id', $id);
+		$stmt->execute();
+		
+		$this->copyFromRow($stmt->fetch());
+	}
+}
+?>

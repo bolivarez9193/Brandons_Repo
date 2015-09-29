@@ -1,0 +1,97 @@
+<?php
+require_once("PasswordHash.php");
+
+class User
+{
+	public static $tableName = "users";
+	
+	public $username;
+	public $full_name;
+	public $id;
+	public $password_hash;
+	public $admin;
+	
+	function copyFromRow( $row ){
+		$this->id = $row['id'];
+		$this->full_name = $row['full_name'];
+		$this->username = $row['username'];
+		$this->password_hash = $row['password_hash'];
+		$this->admin = $row['admin'];
+	}
+	
+	function validatePassword($password, $password2){
+	$this->errors=array();
+		if($password!=$password2){
+			$this->errors['password']='Passwords do not match!';
+			return false;
+		}
+		else{
+			return true;
+		}
+	}
+	
+	function findByUsername($username, $dbh){
+		$stmt = $dbh->prepare( "select * from ".User::$tableName." where username = :username;");
+		$stmt->bindParam(':username', $username);
+		$stmt->execute();
+		
+		$this->copyFromRow($stmt->fetch());
+	}
+	
+	function findByID($id, $dbh){
+		$stmt = $dbh->prepare( "select * from ".User::$tableName." where id = :id;");
+		$stmt->bindParam(':id', $id);
+		$stmt->execute();
+		
+		$this->copyFromRow($stmt->fetch());
+	}
+	
+	function getError( $field ) {
+         if( isset($this->errors[$field]) ) {
+            return $this->errors[$field];
+         }
+         return "";
+      }
+	  
+	function login($password){
+		$this->errors=array();
+		$hasher = new PasswordHash( 8, false );
+		$checker = $hasher->CheckPassword( $password, $this->password_hash );
+		//return $hasher->CheckPassword( $password, $this->password_hash );
+		
+		if(!$checker){
+			$this->errors['login'] = 'Wrong username or password!';
+			return $checker;
+		} else{
+			return $checker;
+		}
+		
+	}
+	
+	function saveWithPassword($dbh, $password){
+		$hasher = new PasswordHash( 8, false );
+		$this->password_hash = $hasher->HashPassword( $password );
+		
+		//check if this is a new object
+		if( !$this->id){
+			//if so insert
+			$stmt = $dbh->prepare( "insert into ".User::$tableName." (username, full_name, password_hash) values (:username, :full_name, :password_hash)");
+			$stmt->bindParam(":username", $this->username);
+			$stmt->bindParam(":full_name", $this->full_name);
+			$stmt->bindParam(":password_hash", $this->password_hash);
+			$stmt->execute();
+			//and set id
+			$this->id = $dbh->lastInsertId();
+		} 
+			//otherwise update
+		else{
+			$stmt = $dbh->prepare( "update ".User::$tableName." set username=:username, full_name=:full_name, password_hash=:password_hash where id=".$this->id);
+			$stmt->bindParam(":username", $this->username);
+			$stmt->bindParam(":full_name", $this->full_name);
+			$stmt->bindParam(":password_hash", $this->password_hash);
+			$stmt->execute();
+			}
+	}
+	
+}
+?>

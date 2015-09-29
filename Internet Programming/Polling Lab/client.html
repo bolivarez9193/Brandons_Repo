@@ -1,0 +1,45 @@
+<html>
+
+<head>
+
+<title>Pollin'</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+<h1>Chat!</h1>
+
+<form>
+
+<div class="form-group">
+	<label>Say something profound...</label>
+	<input type="textbox" class="form-control" id="name" placeholder="Your name">
+</div>
+
+<div class="form-group">
+	<div class="input-group">
+	    <input type="textbox" class="form-control" id="text" placeholder="Your wisdom">
+	    <span class="input-group-btn">
+	    	<button class="btn btn-primary" id="send">Speak!</button>
+	   	</span>
+	</div>
+</div>
+
+<div class="form-group">
+	<label>Everyone else's drivel</label>
+	<textarea class="form-control" id="log"></textarea>
+	<button class="btn btn-primary" id="update">Update</button>
+</div>
+
+
+</form>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="client.js"></script>
+
+</body>
+
+</html>

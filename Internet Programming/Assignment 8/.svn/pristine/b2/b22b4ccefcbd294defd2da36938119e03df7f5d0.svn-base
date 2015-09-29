@@ -1,0 +1,37 @@
+<html>
+
+<head>
+<title>Recipe Details</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="main.css">
+
+<?php
+	require_once dirname(__FILE__) . '/../RecipeDetail.php'
+?>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="page-header">
+	<h1>Recipe Steps</h1>
+</div>
+<table class="table">
+<td rowspan="2">
+		<img class="thumb" src="http://www.tastyburger.com/wp-content/themes/tastyBurger/images/home/img-large-burger.jpg?">
+	</td>
+	<tr>
+		<td>burger</td>
+		<td><ul>
+			<li>chesse</li>
+		</ul></td>
+	</tr>
+</table>
+<p><a href="RecipeList.php">Go back to recipes.</a></p>
+</body>
+
+</div>
+
+</html>

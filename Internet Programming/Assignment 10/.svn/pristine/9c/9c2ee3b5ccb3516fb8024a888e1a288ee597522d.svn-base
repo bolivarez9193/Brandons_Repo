@@ -1,0 +1,13 @@
+.error {
+	font-style: italic;
+	color: red;
+}
+
+.message {
+	font-style: italic;
+	color: blue;
+}
+
+img {
+	width: 600;
+}

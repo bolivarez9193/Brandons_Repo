@@ -1,0 +1,8 @@
+<?php
+require_once("models/RecipeStep.php");
+require_once("models/DB.php");
+$idOfRecipe = $_GET["ID"];
+$nameOfRecipe = $_GET["name"];
+$recipeSteps = RecipeStep::findAllForRecipe( $idOfRecipe, $dbh );
+require_once("views/view_details.php");
+?>

@@ -1,0 +1,65 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="final.css">
+</head>
+
+<body>
+
+<h1>Final</h1>
+
+<div class="emph">or other midterm, if you like</div>
+
+<p>If you're reading this, you already successfully checked out the final. Sweet.</p>
+
+<p>Rules and Guidelines</p>
+<ul>
+	<li>You may use any resources except other people, or classmates' work. Googling public information is fine.</li>
+	<li>You <strong>may not</strong> copy and paste code off the internet. Write it yourself, in your own way.</li>
+	<li>Work on a lab computer.</li>
+</ul>
+
+<h2>Setup</h2>
+
+<ol>
+	<li>If you didn't already, move this folder into Apache's htdocs and start up Apache and MySQL through the XAMPP control panel.</li>
+	<li>Import the <em>them.sql</em> file into the database you are going to use.</li>
+	<li>I'd recommend just reusing one that already works</li>
+	<li>Update the connection information in models/DB.php</li>
+	<li>Confirm that you can load TheList.php in your browser (through http://localhost, not as a file!)</li>
+</ol>
+
+<h2>Question 1  (10 points)</h2>
+
+<p>In the holiday spirit, I decided to make a list of my enemies, so that I don't forget to get them if it's the last thing I do. It's not finished though, so you'll have to help me out. Open TheList.php controller - if all is well, it should load with a mocked up view.</p>
+
+<p>Your first job is to make it show the actual data from the database. The table and test data are already there for you. I'm also giving you the ORM Enemy model, which you do not need to change for this question. I totally forgot about prioritizing my enemies when I wrote it (rookie mistake!), so don't worry about showing priorities. Yet.</p>
+
+<p>Look through the model to understand how it works, then use it to update TheList.php controller and thelist.php view.</p>
+
+<h2>Question 2 (5 points)</h2>
+
+<p>Okay, I know I put a priority field in the database. Update the Enemy model and thelist.php view to show my enemies with priority numbers, in order (priority 1 gets it first). 
+
+<h2>Question 3 (10 points)</h2>
+
+<p>Adding enemies works already. Try it, it's fun! But man, I did something wrong because the priority for new additions is always 3. Please fix that, and update the error handling to complain about:</p>
+<ul>
+	<li>Blank priority</li>
+	<li>Non-numeric priority</li>
+</ul>
+
+<h2>Question 4 (10 points)</h2>
+
+<p>I made a local JavaScript function to remove people from the list after I...take care of them. But it only changes the page, not the database! Try remove someone, then reload and they come back. Use AJAX to send a delete request to the unfinished Resolved.php controller to actually remove them. Also finish the controller, using the Enemy model. Make sure the enemy in question exists and delete them. You don't need to worry about returning any errors.</p>
+
+<p>Use AJAX, don't reload the page!</p>
+
+<h2>Bonus Question!</h2>
+
+<p>I like to feel like I'm accomplishing things. Update the Resolved.php controller to keep count of how many people I've removed in this session (since I opened my web browser). Use the session mechanism, not the database. Return that number from the AJAX call whenever I remove someone, and add a nice, celebratory banner above the table that shows how many of them have gotten what was coming to them.</p>
+
+<script src="http://code.jquery.com/jquery.min.js"></script>
+
+</body>
+</html>

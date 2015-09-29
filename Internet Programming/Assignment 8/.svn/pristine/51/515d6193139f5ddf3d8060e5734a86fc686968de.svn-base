@@ -1,0 +1,26 @@
+<html>
+
+<head>
+<title>Recipe Details</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="main.css">
+
+<?php
+	require_once dirname(__FILE__) . '/../RecipeDetail.php'
+?>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="page-header">
+	<h1>Recipe Steps</h1>
+</div>
+
+</body>
+
+</div>
+
+</html>

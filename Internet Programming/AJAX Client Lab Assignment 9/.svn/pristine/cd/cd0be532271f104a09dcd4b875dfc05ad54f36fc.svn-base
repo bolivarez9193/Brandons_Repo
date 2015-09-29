@@ -1,0 +1,18 @@
+<?php
+class Ingredient
+{
+	# table name
+	public static $tableName = "ingredients";
+
+	# db column names
+	public $id;
+	public $name;
+
+
+
+
+	function __tostring() {
+		return "Ingredient ".$this->id." ".$this->name;
+	}
+}
+?>

@@ -1,0 +1,28 @@
+<?php
+// include models, including the database connection
+require_once("models/Recipe.php");
+require_once("models/DB.php");
+
+// get querystring data (part 2)
+
+
+
+
+// get form data (part 3)
+
+
+
+
+// using the Recipe model, retrieve an array of recipes
+$newSort = "Total";
+$recipes = Recipe::findAll($dbh, $newSort);
+
+
+//SELECT * FROM 'recipes'
+//WHERE name like '%rec%'
+// require the view
+require_once("views/view_recipes.php");
+
+
+
+?>
